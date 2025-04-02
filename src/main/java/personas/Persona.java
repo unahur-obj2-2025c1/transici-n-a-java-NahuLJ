@@ -29,5 +29,5 @@ public abstract class Persona {
 	public Boolean esDestacado() {
 		return edad == 25 || edad == 35;
 	}
-	// prueba commit
+	// prueba commit 2
 }
