@@ -1,5 +1,7 @@
 package personas;
 
+import planetas.Planeta;
+
 public class Atleta extends Persona {
 	private Integer masaMuscular = 4;
 	private Integer cantTecnicas = 2;
@@ -36,5 +38,10 @@ public class Atleta extends Persona {
 	
 	public void aprenderTecnica() {
 		this.cantTecnicas += 1;
+	}
+	
+	@Override
+	public void ofrecerTributo(Planeta planeta) {
+		planeta.construirMurallas(2);
 	}
 }

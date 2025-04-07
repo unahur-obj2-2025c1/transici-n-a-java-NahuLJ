@@ -1,5 +1,7 @@
 package personas;
 
+import planetas.Planeta;
+
 public class Persona {
 	private Integer edad;
 	
@@ -30,4 +32,9 @@ public class Persona {
 		return edad == 25 || edad == 35;
 	}
 	
+	public void ofrecerTributo(Planeta planeta) {}
+	
+	public Integer valor() {
+		return this.getInteligencia() + this.getPotencia();
+	}
 }

@@ -9,6 +9,7 @@ import personas.Persona;
 public class Planeta {
 	private Set<Persona> habitantes = new HashSet<>();
 	private Integer cantMuseos = 0;
+	private Integer cantMurallas = 0;
 	
 	public Planeta() {
 		
@@ -21,6 +22,12 @@ public class Planeta {
 	public Planeta(Set<Persona> habitantes, Integer cantMuseos) {
 		this.habitantes = habitantes;
 		this.cantMuseos = cantMuseos;
+	}
+	
+	public Planeta(Set<Persona> habitantes, Integer cantMuseos, Integer cantMurallas) {
+		this.habitantes = habitantes;
+		this.cantMuseos = cantMuseos;
+		this.cantMurallas = cantMurallas;
 	}
 	
 	public void agregarHabitante(Persona habitante) {
@@ -45,5 +52,30 @@ public class Planeta {
 	
 	public Integer potenciaReal() {
 		return habitantes.stream().map(h -> h.getPotencia()).reduce(0, Integer::sum);
+	}
+	
+	public void construirMurallas(Integer cantidad) {
+		this.cantMurallas += cantidad;
+	}
+	
+	public void fundarMuseo() {
+		this.cantMuseos += 1;
+	}
+	
+	public Integer potenciaAparente() {
+		Integer poderHabMasPotente = habitantes.stream().mapToInt(Persona::getPotencia).max().orElse(0);
+		return poderHabMasPotente * habitantes.size();
+	}
+	
+	public Boolean necesitaEsforzarse() {
+		return this.potenciaAparente() * 2 >= this.potenciaReal();
+	}
+	
+	public void recibirAtributos() {
+		habitantes.stream().forEach(h -> h.ofrecerTributo(this));
+	}
+	
+	public HashSet<Persona> habitantesValiosos(){
+		return habitantes.stream().filter(h -> h.valor() >= 40).collect(Collectors.toCollection(HashSet::new));
 	}
 }
