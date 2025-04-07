@@ -1,6 +1,6 @@
 package personas;
 
-public abstract class Persona {
+public class Persona {
 	private Integer edad;
 	
 	public Persona(Integer edad) {
@@ -15,19 +15,19 @@ public abstract class Persona {
 		this.edad = edad;
 	}
 	
-	public Integer inteligencia() {
+	public Integer getInteligencia() {
 		if (edad >= 20 && edad <= 40) {
 			return 12;
 		}
 		return 8;
 	}
 
-	public Integer potencia() {
+	public Integer getPotencia() {
 		return 20;
 	}
 	
 	public Boolean esDestacado() {
 		return edad == 25 || edad == 35;
 	}
-	// prueba commit 2
+	
 }

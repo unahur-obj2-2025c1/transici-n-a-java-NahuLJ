@@ -14,8 +14,8 @@ public class Docente extends Persona {
 	}
 	
 	@Override
-	public Integer inteligencia() {
-		return super.inteligencia() + cantCursos * 2;
+	public Integer getInteligencia() {
+		return super.getInteligencia() + cantCursos * 2;
 	}
 	
 }

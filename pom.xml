@@ -3,4 +3,14 @@
   <groupId>transicion.java.nahuLJ</groupId>
   <artifactId>transici-n-a-java-NahuLJ</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <dependencies>
+    <!-- JUnit Jupiter (JUnit 5) -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.10.0</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
 </project>

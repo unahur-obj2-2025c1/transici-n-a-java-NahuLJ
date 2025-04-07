@@ -23,6 +23,10 @@ public class Planeta {
 		this.cantMuseos = cantMuseos;
 	}
 	
+	public void agregarHabitante(Persona habitante) {
+		habitantes.add(habitante);
+	}
+	
 	public Set<Persona> getHabitantes() {
 		return habitantes;
 	}
@@ -31,11 +35,15 @@ public class Planeta {
 		return habitantes.stream().filter(h -> h.esDestacado()).collect(Collectors.toSet());
 	}
 	
+	public Integer getDefensa() {
+		return Integer.valueOf((int) habitantes.stream().filter(h -> h.getPotencia() >= 30).count());
+	}
+	
 	public Boolean esCulto() {
-		return cantMuseos >= 2 && habitantes.stream().allMatch(h -> h.inteligencia() >= 10);
+		return cantMuseos >= 2 && habitantes.stream().allMatch(h -> h.getInteligencia() >= 10);
 	}
 	
 	public Integer potenciaReal() {
-		return habitantes.stream().map(h -> h.potencia()).reduce(0, Integer::sum);
+		return habitantes.stream().map(h -> h.getPotencia()).reduce(0, Integer::sum);
 	}
 }
