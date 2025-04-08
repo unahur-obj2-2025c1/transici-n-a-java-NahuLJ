@@ -1,6 +1,6 @@
 package planetas;
 
-import java.util.HashSet;
+ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -77,5 +77,9 @@ public class Planeta {
 	
 	public HashSet<Persona> habitantesValiosos(){
 		return habitantes.stream().filter(h -> h.valor() >= 40).collect(Collectors.toCollection(HashSet::new));
+	}
+	
+	public void apaciguar(Planeta planeta) {
+		this.habitantesValiosos().stream().forEach(h -> h.ofrecerTributo(planeta));
 	}
 }
